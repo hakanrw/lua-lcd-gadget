@@ -1,16 +1,17 @@
-# five-bit-counter
+# lua-lcd-gadget
 
-a five bit counter written in C for the RP2040 Raspberry Pi Pico microcontroller.
+embedded Lua and LCD module for the RP2040 Raspberry Pi Pico microcontroller. 
 
-![five-bit-counter](https://github.com/user-attachments/assets/998074eb-45d7-4de9-9d44-dde7786f20b8)
+![lua-lcd-gadget](https://github.com/user-attachments/assets/c42c38c9-87dc-4817-a141-8eaecb258967)
 
 ## required hardware
 
 - Raspberry Pi Pico
 - 1x breadboard
-- 6x LEDs (5 counter, 1 overflow)
+- 1x I2C LCD screen
+- 2x LEDs (1 green, 1 red)
 - 2x micro buttons
-- 6x 220 ohm resistors
+- 4x 220 ohm resistors
 - 2x 10K ohm resistors
 - cables
 
@@ -24,7 +25,7 @@ a five bit counter written in C for the RP2040 Raspberry Pi Pico microcontroller
 
 wire your components like the picture as shown at the top.
 
-if you change your pins, edit `counter.h` appropriately.
+if you change your pins, edit `gadget.h` appropriately.
 
 ## building
 
