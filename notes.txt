@@ -1,0 +1,7 @@
+# building with clang
+```
+cmake -B build -D CMAKE_C_FLAGS=--target=armv6m-none-eabi -D CMAKE_SYSROOT=/usr/arm-none-eabi -D CMAKE_C_COMPILER=/usr/bin/clang --debug-output
+```
+
+# static library problem
+liblua.a required to be built with -mcpu=mcortex0plus to work. otherwise, after calling library function, the device freezes
