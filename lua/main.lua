@@ -10,4 +10,7 @@ sleep(1.5)
 lcd.clear()
 lcd.string("Hello from Lua!")
 
-print(util.greet("Hakan"))
+sleep(1.5)
+
+lcd.clear()
+lcd.string(util.greet("World!"))

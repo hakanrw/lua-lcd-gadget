@@ -17,10 +17,10 @@ add_subdirectory(lua)
 
 # gadget.c depends on example.lua
 set_source_files_properties(gadget.c
-    PROPERTIES OBJECT_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/main.lua"
+    PROPERTIES OBJECT_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/lua/main.lua"
 )
 
-file(GLOB LUA_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.lua")
+file(GLOB LUA_FILES "${CMAKE_CURRENT_SOURCE_DIR}/lua/*.lua")
 
 # Create a list to store Lua file names without the extension
 set(LUA_FILES_WITHOUT_EXT "")

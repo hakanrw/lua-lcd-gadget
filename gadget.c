@@ -23,7 +23,7 @@
 
 #include "incbin.h"
 
-INCTXT(luacode, "main.lua");
+INCTXT(luacode, "lua/main.lua");
 
 void pins_setup() {
     gpio_init(LED_RED);

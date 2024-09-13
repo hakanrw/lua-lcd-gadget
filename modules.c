@@ -13,7 +13,7 @@
 
 #include "incbin.h"
 
-#define INCLUA(x) INCTXT(x, #x ".lua");
+#define INCLUA(x) INCTXT(x, "lua/" #x ".lua");
 
 MAP(INCLUA, LUA_FILES)
 
