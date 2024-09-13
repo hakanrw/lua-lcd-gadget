@@ -18,13 +18,12 @@
 #include "lualib.h"
 
 #include "gadget.h"
-#include "lua_lcd.h"
+#include "modules.h"
+#include "lcd.h"
 
-#define INCBIN_PREFIX g_
-#define INCBIN_STYLE INCBIN_STYLE_SNAKE
 #include "incbin.h"
 
-INCTXT(luacode, "example.lua");
+INCTXT(luacode, "main.lua");
 
 void pins_setup() {
     gpio_init(LED_RED);
@@ -63,10 +62,12 @@ void lua_setup() {
     }
 
     luaL_openlibs(L);
-    register_lcd(L);
+    modules_preregister(L);
 
     lua_pushcfunction(L, lua_sleep);
     lua_setglobal(L, "sleep");
+
+    printf("lua stack size: %d\n", lua_gettop(L));
 
     if (luaL_dostring(L, g_luacode_data) != LUA_OK) {
         printf("Error: %s\n", lua_tostring(L, -1));

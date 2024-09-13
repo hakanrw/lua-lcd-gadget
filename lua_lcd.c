@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2024 Hakan Candar
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD 2-Clause License found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 #include "lua_lcd.h"
 
 int lua_lcd_clear(lua_State *L) {
@@ -33,8 +41,6 @@ int lua_lcd_init(lua_State *L) {
 
 // Create the module and register functions
 int luaopen_lcd(lua_State *L) {
-    printf("exampl\n");
-
     // Create a new table for the `lcd` module
     lua_newtable(L);
 

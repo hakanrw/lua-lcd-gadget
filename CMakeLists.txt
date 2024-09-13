@@ -17,8 +17,34 @@ add_subdirectory(lua)
 
 # gadget.c depends on example.lua
 set_source_files_properties(gadget.c
-    PROPERTIES OBJECT_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/example.lua"
+    PROPERTIES OBJECT_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/main.lua"
 )
+
+file(GLOB LUA_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.lua")
+
+# Create a list to store Lua file names without the extension
+set(LUA_FILES_WITHOUT_EXT "")
+
+# Loop through the Lua files and remove the extension
+foreach(LUA_FILE ${LUA_FILES})
+    # Get the filename without the directory and extension
+    get_filename_component(LUA_FILE_WE ${LUA_FILE} NAME_WE)
+    # Append the filename without extension to the list
+    list(APPEND LUA_FILES_WITHOUT_EXT ${LUA_FILE_WE})
+endforeach()
+
+# Convert the list to a semicolon-separated string
+string(REPLACE ";" ", " LUA_FILES_STR "${LUA_FILES_WITHOUT_EXT}")
+
+set_source_files_properties(modules.c
+    PROPERTIES OBJECT_DEPENDS "${LUA_FILES}"
+)
+
+# Pass the list of Lua files without extension to the compiler as a definition
+add_definitions(-DLUA_FILES=${LUA_FILES_STR})
+
+# Print the collected filenames without extension
+message(STATUS "Lua files (without extension): ${LUA_FILES_STR}")
 
 # rest of your project
 add_executable(lua_gadget
@@ -26,6 +52,7 @@ add_executable(lua_gadget
     lcd.c
     stubs.c
     lua_lcd.c
+    modules.c
 )
 
 # Add pico_stdlib library which aggregates commonly used features

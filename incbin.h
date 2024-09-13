@@ -8,6 +8,10 @@
  */
 #ifndef INCBIN_HDR
 #define INCBIN_HDR
+
+#define INCBIN_PREFIX g_
+#define INCBIN_STYLE INCBIN_STYLE_SNAKE
+
 #include <limits.h>
 #if   defined(__AVX512BW__) || \
       defined(__AVX512CD__) || \
