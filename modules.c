@@ -33,9 +33,10 @@ int lopen(lua_State* L, const char* lua_script) {
             lua_pop(L, lua_gettop(L));
         }
     } else {
-        const char *error_msg = lua_tostring(L, -1);
-        printf("Error: %s\n", error_msg);
-        lua_pop(L, lua_gettop(L));
+        lua_error(L);
+        //const char *error_msg = lua_tostring(L, -1);
+        //printf("Error: %s\n", error_msg);
+        //lua_pop(L, lua_gettop(L));
     }
 
     return 0;
