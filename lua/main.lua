@@ -1,6 +1,6 @@
 -- native modules --
 local lcd = require("lcd")
-local gpio = require("lcd")
+local gpio = require("gpio")
 --                --
 
 --    lua files   --
