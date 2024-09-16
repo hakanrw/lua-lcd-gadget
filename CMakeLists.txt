@@ -51,8 +51,9 @@ add_executable(lua_gadget
     gadget.c
     lcd.c
     stubs.c
-    lua_lcd.c
     modules.c
+    lua_lcd.c
+    lua_gpio.c
 )
 
 # Add pico_stdlib library which aggregates commonly used features

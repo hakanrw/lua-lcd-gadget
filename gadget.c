@@ -26,16 +26,6 @@
 INCTXT(luacode, "lua/main.lua");
 
 void pins_setup() {
-    gpio_init(LED_RED);
-    gpio_init(LED_GREEN);
-    gpio_set_dir(LED_RED, GPIO_OUT);
-    gpio_set_dir(LED_GREEN, GPIO_OUT);
-
-    gpio_init(BUTTON_A);
-    gpio_init(BUTTON_B);
-    gpio_set_dir(BUTTON_A, GPIO_IN);
-    gpio_set_dir(BUTTON_B, GPIO_IN);
-
     i2c_init(i2c0, 100 * 1000);
     gpio_set_function(LCD_SDA, GPIO_FUNC_I2C);
     gpio_set_function(LCD_SCL, GPIO_FUNC_I2C);
@@ -84,7 +74,7 @@ void board_loop() {
 
 int main() {
     stdio_init_all();
-    sleep_ms(3000);
+    sleep_ms(1000);
     printf("starting raspberry pico");
 
     pins_setup();

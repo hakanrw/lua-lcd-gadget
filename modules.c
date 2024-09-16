@@ -8,9 +8,9 @@
 
 #include "modules.h"
 #include "lua_lcd.h"
+#include "lua_gpio.h"
 
 #include "map.h"
-
 #include "incbin.h"
 
 #define INCLUA(x) INCTXT(x, "lua/" #x ".lua");
@@ -53,6 +53,7 @@ void register_module(lua_State *L, const char* modname, int (*funcptr)(lua_State
 
 void modules_preregister(lua_State *L) {
     register_lcd(L);
+    register_gpio(L);
     MAP(REGISTER, LUA_FILES)
     printf("lua stack size: %d\n", lua_gettop(L));
 }
