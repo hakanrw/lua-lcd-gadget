@@ -1,4 +1,4 @@
--- pin layout of the gadget --
+---- pin layout of the gadget ----
 
 local pinout = {}
 

@@ -26,7 +26,7 @@ int lua_gpio_get_dir(lua_State *L) {
     int pin = luaL_checkinteger(L, 1);
 
     bool dir = gpio_get_dir(pin);
-    lua_pushboolean(L, dir);
+    lua_pushinteger(L, dir);
     return 1;
 }
 
@@ -42,7 +42,7 @@ int lua_gpio_get(lua_State *L) {
     int pin = luaL_checkinteger(L, 1);
 
     bool val = gpio_get(pin);
-    lua_pushboolean(L, val);
+    lua_pushinteger(L, val);
     return 1;
 }
 
@@ -67,7 +67,7 @@ int luaopen_gpio(lua_State *L) {
     lua_setfield(L, -2, "get");
 
     lua_pushinteger(L, GPIO_IN);
-    lua_setfield(L, -2, "in");
+    lua_setfield(L, -2, "inp");
 
     lua_pushinteger(L, GPIO_OUT);
     lua_setfield(L, -2, "out");
