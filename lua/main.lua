@@ -27,7 +27,8 @@ gpio.init(pinout.led_green)
 gpio.set_dir(pinout.led_red, gpio.out)
 gpio.set_dir(pinout.led_green, gpio.out)
 
-for i = 1, 10 do
+for i = 1, 32 do
     gpio.put(pinout.led_red, i % 2 == 0 and gpio.high or gpio.low)
     gpio.put(pinout.led_green, i % 2 == 1 and gpio.high or gpio.low)
+    sleep(0.5)
 end
